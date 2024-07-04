@@ -1,5 +1,3 @@
-package ExercisesToJava;
-
 import java.util.Scanner;
 
 public class Pratica8 {

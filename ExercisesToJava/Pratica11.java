@@ -1,3 +1,20 @@
+import java.util.Scanner;
+
+public class Pratica11 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Qual a matrícula?");
+        String mat = scan.next();
+
+        System.out.println("Qual o valor da mensalidade?");
+        float value = scan.nextFloat();
+
+        System.out.println("O aluno " + mat + " paga mensalmente R$:" + value);
+        scan.close();
+    }
+}
+
 //------------------------------| Código em C |------------------------------//
 
 // #include<stdio.h>

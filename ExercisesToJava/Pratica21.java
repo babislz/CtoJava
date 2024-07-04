@@ -1,5 +1,3 @@
-package ExercisesToJava;
-
 public class Pratica21 {
     public static void main(String[] args) {
         int num1 = 151, num2 = 98;
