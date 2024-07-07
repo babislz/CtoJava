@@ -1,47 +1,61 @@
-import java.util.Scanner;
-
 public class EX_10 {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        int[][] mat1 = new int[4][4];
+        int value = 1;
+        int sum = 0;
 
-        System.out.print("Insira o código: ");
-        String code = scan.next();
-        System.out.print("\nInsira a idade: ");
-        int age = scan.nextInt();
-        System.out.print("\nInsira a altura: ");
-        float height = scan.nextFloat();
-        System.out.print("\nInsira o peso: ");
-        float weight = scan.nextFloat();
+        for (int row = 0; row < 4; row++) {
+            for (int col = 0; col < 4; col++) {
+                mat1[row][col] = value;
+                value = value * 2;
 
-        scan.close();
+                sum = sum + mat1[row][col];
+            }
+        }
 
-        System.out.println("\n___________________________________________\n");
-        System.out.println("\nO competidor " + code + " tem " + age + " anos, pesa " + weight + "Kg e tem " + height + "m de altura. \n");
+        for (int row = 0; row < 4; row++) {
+            for (int col = 0; col < 4; col++) {
+                System.out.print("| " + mat1[row][col] + " |");
+            }
+            System.out.println();
+        }
+
+        System.out.println("The sum of the matrix = " + sum + "\n");
     }
 }
 
-//------------------------------| Código em C |------------------------------//
+//------------------------------| Código em C |------------------ ------------//
 
-// #include<stdio.h>
-// #include<stdlib.h>
-// //exercico 10
+/* #include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
 
-// int main(){
-// 	int code, age;
-// 	float height, weight;
+int main(){
+	setlocale(LC_ALL,"Portuguese");
+
+	int mat1[4][4];
+	int l,c;
+	int valor = 1;
+	int soma = 0;
 	
-// 	printf("Qual o codigo:");
-// 	 scanf("%d", &code);
-// 	printf("Qual o idade:");
-//    	 scanf("%d", &age);
-// 	printf("Qual o altura:");
-// 	 scanf("%f", &height);
-// 	printf("Qual o peso:");
-// 	 scanf("%f", &weight);
-// 	printf("\n");
+	for(l = 0; l < 4; l++){
+		for(c = 0; c < 4; c++){
+		mat1[l][c] = valor;
+		valor = valor * 2;
+
+		soma = soma + mat1[l][c];
+		}
+	}
 	
-// 	printf("O competidor %d , tem %d anos, pesa %.2f Kg e tem %.2f de altura. \n", code, age, weight,height);
+	for(l = 0; l < 4; l++){
+		for(c = 0; c < 4; c++){
+			printf("| %d |",mat1[l][c]);
+		}
+		printf("\n");
+	}
 	
-// 	system("pause");
-// 	return 0;
-// }		 
+	printf("A soma da matriz = %d\n\n",soma);
+	
+system("pause");
+return 0;
+} */

@@ -1,4 +1,4 @@
-public class Pratica21 {
+public class EX_05 {
     public static void main(String[] args) {
         int num1 = 151, num2 = 98;
         System.out.println(num1>num2?"Verdadeiro":"Falso");

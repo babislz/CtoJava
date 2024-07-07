@@ -2,54 +2,48 @@ import java.util.Scanner;
 
 public class EX_01 {
 
-    public static float Sal_Bruto(float p_horasn, float p_horase){
-        float respn = 0, respe = 0, bruto = 0;
-
-        respn = p_horasn * 12;
-        respe = p_horase * 15.50f;
-        bruto = respn + respe;
-        
-        return(bruto);
+    public static float calculateGrossSalary(float normalHours, float extraHours) {
+        float regularPay = normalHours * 12;
+        float extraPay = extraHours * 15.50f;
+        float grossSalary = regularPay + extraPay;
+        return grossSalary;
     }
 
-    public static float Sal_Liquido(float p_respbruto){
-        float respliquido = 0;
-        
-        respliquido = p_respbruto * 0.1f;
-        respliquido = p_respbruto - respliquido;
-        
-        return(respliquido);
+    public static float calculateNetSalary(float grossSalary) {
+        float tax = grossSalary * 0.1f;
+        float netSalary = grossSalary - tax;
+        return netSalary;
     }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int cont = 0;
-        
-        for (cont = 1; cont < 11; cont++) {
-            System.out.println("\n_________________________________________\n");
-            System.out.println("\nQUAL O SEU CÓDIGO:");
-            String cod = scan.next();
-            
-            System.out.println("QUANTIDADE DE HORAS NORMAIS:");
-            float horasn = scan.nextFloat();
-            
-            System.out.println("QUANTIDADE DE HORAS EXTRAS:");
-            float horase = scan.nextFloat();
-            
-            System.out.println("_________________________________________\n");
-            
-            System.out.println("\nFUNCIONÁRIO CALCULADO:\n" + cont);
-            
-            float respbruto = Sal_Bruto(horasn, horase);
-			float respliquido = Sal_Liquido(respbruto);
-			mostra(cod, horasn, horase, respbruto, respliquido);
 
+        for (int employeeCount = 1; employeeCount <= 10; employeeCount++) {
+            System.out.println("\n_________________________________________\n");
+            System.out.println("\nEnter employee code:");
+            String code = scan.next();
+            
+            System.out.println("Enter number of normal hours worked:");
+            float normalHours = scan.nextFloat();
+            
+            System.out.println("Enter number of extra hours worked:");
+            float extraHours = scan.nextFloat();
+            
+            System.out.println("\n_________________________________________\n");
+            
+            System.out.println("\nCalculating for employee: " + employeeCount);
+            
+            float grossSalary = calculateGrossSalary(normalHours, extraHours);
+            float netSalary = calculateNetSalary(grossSalary);
+            displayEmployeeInfo(code, normalHours, extraHours, grossSalary, netSalary);
         }
+        
+        scan.close();
     }
 
-    public static void mostra(String p_cod,float p_horasn, float p_horase,float p_respbruto,float p_respliquido){
-        System.out.println("O funcionário " + p_cod + " trabalhou " + p_horasn + " normais e " + p_horase + " horas extras");
-        System.out.println("Irá receber R$:" + p_respbruto + " de salário bruto e R$:" + p_respliquido + " de salário líquido");
+    public static void displayEmployeeInfo(String code, float normalHours, float extraHours, float grossSalary, float netSalary) {
+        System.out.println("Employee " + code + " worked " + normalHours + " regular hours and " + extraHours + " extra hours");
+        System.out.println("Gross salary: R$" + grossSalary + " | Net salary: R$" + netSalary);
     }
 }
 

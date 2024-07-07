@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Pratica8 {
+public class EX_03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Qual é a idade do aluno? ");
